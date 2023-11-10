@@ -18,6 +18,10 @@ use App\Author\Controllers\AuthorController;
 Route::prefix('books')->middleware(['auth:sanctum'])->name('books.')->group(function () {
     Route::get('/', [BookController::class, 'index'])->name('list');
     Route::post('/', [BookController::class, 'create'])->name('create');
+
+    Route::prefix('{book}')->group(function () {
+        Route::post('/set-owner', [BookController::class, 'setOwner'])->name('set-owner');
+    });
 });
 
 Route::prefix('authors')->middleware(['auth:sanctum'])->name('authors.')->group(function () {
