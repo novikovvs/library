@@ -2,8 +2,8 @@
 
 namespace App\Common\Factories;
 
-use App\Common\DTOs\PagerDTO;
 use Illuminate\Http\Request;
+use App\Common\DTOs\PagerDTO;
 
 class PagerFactory
 {

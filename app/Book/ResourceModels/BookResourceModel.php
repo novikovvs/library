@@ -2,8 +2,8 @@
 
 namespace App\Book\ResourceModels;
 
-use App\Common\ResourceModels\AbstractResourceModel;
 use App\User\ResourceModels\UserShortResourceModel;
+use App\Common\ResourceModels\AbstractResourceModel;
 
 class BookResourceModel extends AbstractResourceModel
 {

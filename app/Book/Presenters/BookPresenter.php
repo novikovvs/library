@@ -3,8 +3,8 @@
 namespace App\Book\Presenters;
 
 use App\Book\Models\Book;
-use App\Book\ResourceModels\BookResourceModel;
 use App\User\Presenters\UserShortPresenter;
+use App\Book\ResourceModels\BookResourceModel;
 
 class BookPresenter
 {

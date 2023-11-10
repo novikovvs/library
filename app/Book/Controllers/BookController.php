@@ -2,11 +2,11 @@
 
 namespace App\Book\Controllers;
 
-use App\Book\Presenters\BookListPresenter;
+use Illuminate\Http\JsonResponse;
+use App\Http\Traits\JsonResponsible;
 use App\Book\Requests\BookListRequest;
 use App\Common\Factories\PagerFactory;
-use App\Http\Traits\JsonResponsible;
-use Illuminate\Http\JsonResponse;
+use App\Book\Presenters\BookListPresenter;
 
 class BookController
 {

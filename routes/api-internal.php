@@ -1,7 +1,7 @@
 <?php
 
-use App\Book\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
+use App\Book\Controllers\BookController;
 
 /*
 |--------------------------------------------------------------------------

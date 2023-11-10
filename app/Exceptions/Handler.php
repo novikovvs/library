@@ -2,13 +2,13 @@
 
 namespace App\Exceptions;
 
-use Illuminate\Auth\AuthenticationException;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Http\JsonResponse;
+use Throwable;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
-use Throwable;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
@@ -24,7 +24,7 @@ class Handler extends ExceptionHandler
         if ($e instanceof ValidationException) {
             return new JsonResponse([
                 'message' => $e->getMessage(),
-                'data' => $e->errors(),
+                'data'    => $e->errors(),
             ], $e->getCode() ?: 422);
         }
 

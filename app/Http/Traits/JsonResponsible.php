@@ -9,7 +9,7 @@ trait JsonResponsible
     protected function success($data = [], string $message = '', int $status = 200): JsonResponse
     {
         return new JsonResponse([
-            'data' => $data,
+            'data'    => $data,
             'message' => $message,
         ], $status);
     }
@@ -17,7 +17,7 @@ trait JsonResponsible
     protected function fail($data = [], string $message = '', int $status = 400): JsonResponse
     {
         return new JsonResponse([
-            'data' => $data,
+            'data'    => $data,
             'message' => $message,
         ], $status);
     }

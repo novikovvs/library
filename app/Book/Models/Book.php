@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * App\Book\Models\Book
+ * App\Book\Models\Book.
  *
  * @property int $id
  * @property string $name
@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  * @property int|null $owner_id
- * @property-read \app\Models\User|null $owner
+ * @property \app\Models\User|null $owner
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Book newModelQuery()
  * @method static \Illuminate\Database\Eloquent\Builder|Book newQuery()

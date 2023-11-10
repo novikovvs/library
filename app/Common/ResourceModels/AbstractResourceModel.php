@@ -2,8 +2,8 @@
 
 namespace App\Common\ResourceModels;
 
-use Illuminate\Support\Str;
 use JsonSerializable;
+use Illuminate\Support\Str;
 
 abstract class AbstractResourceModel implements JsonSerializable
 {

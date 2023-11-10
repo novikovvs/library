@@ -10,7 +10,7 @@ class BookListRequest extends FormRequest
     {
         return [
             'per_page' => 'integer|in:10,20,50',
-            'page' => 'integer',
+            'page'     => 'integer',
         ];
     }
 }

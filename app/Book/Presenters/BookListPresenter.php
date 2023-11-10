@@ -2,9 +2,9 @@
 
 namespace App\Book\Presenters;
 
+use App\Common\DTOs\PagerDTO;
 use App\Book\Queries\BookQueries;
 use App\Book\ResourceModels\BookListResourceModel;
-use App\Common\DTOs\PagerDTO;
 
 class BookListPresenter
 {

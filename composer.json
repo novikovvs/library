@@ -47,6 +47,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "php-cs-fix": [
+            "pint -v --config ./pint.json"
         ]
     },
     "extra": {
