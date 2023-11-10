@@ -26,5 +26,5 @@ Route::prefix('books')->middleware(['auth:sanctum'])->name('books.')->group(func
 });
 
 Route::prefix('authors')->middleware(['auth:sanctum'])->name('authors.')->group(function () {
-    Route::get('', [AuthorController::class, 'index'])->name('list');
+    Route::get('/', [AuthorController::class, 'index'])->name('list');
 });
