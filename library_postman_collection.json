@@ -15,7 +15,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/api-internal/books/?per_page=10&page=1",
+							"raw": "{{baseUrl}}/api-internal/books/?author_name=cringe&per_page=10&page=1",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -27,8 +27,7 @@
 							"query": [
 								{
 									"key": "author_name",
-									"value": "test",
-									"disabled": true
+									"value": "cringe"
 								},
 								{
 									"key": "per_page",
@@ -57,8 +56,13 @@
 									"type": "text"
 								},
 								{
-									"key": "author_id",
+									"key": "author_ids[]",
 									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "author_ids[]",
+									"value": "1",
 									"type": "text"
 								}
 							]
@@ -144,7 +148,7 @@
 							"variable": [
 								{
 									"key": "bookId",
-									"value": "3"
+									"value": "1"
 								}
 							]
 						}
