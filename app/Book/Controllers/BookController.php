@@ -7,6 +7,7 @@ use App\Book\Models\Book;
 use Illuminate\Http\JsonResponse;
 use App\Http\Traits\JsonResponsible;
 use App\Book\Actions\CreateBookAction;
+use App\Book\Actions\DeleteBookAction;
 use App\Book\Requests\BookListRequest;
 use App\Common\Factories\PagerFactory;
 use App\Book\Requests\CreateBookRequest;
@@ -32,9 +33,17 @@ class BookController
     /**
      * @throws Throwable
      */
-    public function create(CreateBookRequest $request, CreateBookAction $action): JsonResponse
+    public function store(CreateBookRequest $request, CreateBookAction $action): JsonResponse
     {
         return $this->success($action->execute(CreateBookFactory::fromRequest($request)));
+    }
+
+    /**
+     * @throws Throwable
+     */
+    public function destroy(DeleteBookAction $action, Book $book): JsonResponse
+    {
+        return $this->success($action->execute($book));
     }
 
     /**

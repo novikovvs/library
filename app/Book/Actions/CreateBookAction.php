@@ -2,6 +2,7 @@
 
 namespace App\Book\Actions;
 
+use Throwable;
 use App\Book\Models\Book;
 use App\Book\DTOs\CreateBookDTO;
 use App\Book\Presenters\BookPresenter;
@@ -15,7 +16,7 @@ class CreateBookAction
     }
 
     /**
-     * @throws \Throwable
+     * @throws Throwable
      */
     public function execute(CreateBookDTO $DTO): BookResourceModel
     {
