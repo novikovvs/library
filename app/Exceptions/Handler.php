@@ -8,6 +8,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
+use App\Common\Exceptions\BusinessLogicException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -25,6 +26,13 @@ class Handler extends ExceptionHandler
             return new JsonResponse([
                 'message' => $e->getMessage(),
                 'data'    => $e->errors(),
+            ], $e->getCode() ?: 422);
+        }
+
+        if ($e instanceof BusinessLogicException) {
+            return new JsonResponse([
+                'message' => $e->getMessage(),
+                'data'    => '',
             ], $e->getCode() ?: 422);
         }
 
