@@ -4,11 +4,11 @@ namespace App\Book\Actions;
 
 use Throwable;
 use App\Models\Book;
-use App\Book\DTOs\CreateBookDTO;
+use App\Book\DTOs\StoreBookDTO;
 use App\Book\Presenters\BookPresenter;
 use App\Book\ResourceModels\BookResourceModel;
 
-class CreateBookAction
+class StoreBookAction
 {
     public function __construct(
         private readonly BookPresenter $bookPresenter,
@@ -18,7 +18,7 @@ class CreateBookAction
     /**
      * @throws Throwable
      */
-    public function execute(CreateBookDTO $DTO): BookResourceModel
+    public function execute(StoreBookDTO $DTO): BookResourceModel
     {
         $book = new Book();
 

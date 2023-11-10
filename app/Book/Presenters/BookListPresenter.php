@@ -19,17 +19,17 @@ class BookListPresenter
     {
         $paginator = $this->bookQueries->list($paging, $filter);
 
-        $list = new BookListResourceModel();
+        $listResource = new BookListResourceModel();
 
-        $list->page = $paginator->currentPage();
-        $list->perPage = $paginator->perPage();
-        $list->totalPages = $paginator->lastPage();
-        $list->total = $paginator->total();
+        $listResource->page = $paginator->currentPage();
+        $listResource->perPage = $paginator->perPage();
+        $listResource->totalPages = $paginator->lastPage();
+        $listResource->total = $paginator->total();
 
         foreach ($paginator->items() as $book) {
-            $list->items[] = $this->bookPresenter->present($book);
+            $listResource->items[] = $this->bookPresenter->present($book);
         }
 
-        return $list;
+        return $listResource;
     }
 }

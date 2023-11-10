@@ -2,7 +2,7 @@
 
 namespace App\Book\DTOs;
 
-class CreateBookDTO
+class StoreBookDTO
 {
     public string $name;
 

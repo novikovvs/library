@@ -6,12 +6,12 @@ use Throwable;
 use App\Models\Book;
 use Illuminate\Http\JsonResponse;
 use App\Http\Traits\JsonResponsible;
-use App\Book\Actions\CreateBookAction;
+use App\Book\Actions\StoreBookAction;
 use App\Book\Requests\BookListRequest;
 use App\Common\Factories\PagerFactory;
 use App\Book\Actions\DestroyBookAction;
-use App\Book\Requests\CreateBookRequest;
-use App\Book\Factories\CreateBookFactory;
+use App\Book\Requests\StoreBookRequest;
+use App\Book\Factories\StoreBookFactory;
 use App\Book\Actions\SetOwnerToBookAction;
 use App\Book\Presenters\BookListPresenter;
 use App\Book\Requests\SetOwnerToBookRequest;
@@ -33,9 +33,9 @@ class BookController
     /**
      * @throws Throwable
      */
-    public function store(CreateBookRequest $request, CreateBookAction $action): JsonResponse
+    public function store(StoreBookRequest $request, StoreBookAction $action): JsonResponse
     {
-        return $this->success($action->execute(CreateBookFactory::fromRequest($request)));
+        return $this->success($action->execute(StoreBookFactory::fromRequest($request)));
     }
 
     /**
