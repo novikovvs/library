@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Book\Controllers\BookController;
+use App\Author\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,9 @@ use App\Book\Controllers\BookController;
 
 Route::prefix('books')->middleware(['auth:sanctum'])->name('books.')->group(function () {
     Route::get('/', [BookController::class, 'index'])->name('list');
+    Route::post('/', [BookController::class, 'create'])->name('create');
+});
+
+Route::prefix('authors')->middleware(['auth:sanctum'])->name('authors.')->group(function () {
+    Route::get('', [AuthorController::class, 'index'])->name('list');
 });

@@ -4,6 +4,7 @@ namespace App\Book\Presenters;
 
 use App\Common\DTOs\PagerDTO;
 use App\Book\Queries\BookQueries;
+use App\Book\DTOs\BookListFilterDTO;
 use App\Book\ResourceModels\BookListResourceModel;
 
 class BookListPresenter
@@ -14,9 +15,9 @@ class BookListPresenter
     ) {
     }
 
-    public function present(PagerDTO $paging): BookListResourceModel
+    public function present(PagerDTO $paging, BookListFilterDTO $filter): BookListResourceModel
     {
-        $paginator = $this->bookQueries->list($paging);
+        $paginator = $this->bookQueries->list($paging, $filter);
 
         $list = new BookListResourceModel();
 

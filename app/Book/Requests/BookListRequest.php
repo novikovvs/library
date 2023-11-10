@@ -9,8 +9,9 @@ class BookListRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'per_page' => 'integer|in:10,20,50',
-            'page'     => 'integer',
+            'per_page'      => 'integer|in:10,20,50',
+            'page'          => 'integer',
+            'author_filter' => 'string',
         ];
     }
 }

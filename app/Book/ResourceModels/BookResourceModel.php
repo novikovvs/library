@@ -2,6 +2,7 @@
 
 namespace App\Book\ResourceModels;
 
+use App\Author\ResourceModels\AuthorResourceModel;
 use App\User\ResourceModels\UserShortResourceModel;
 use App\Common\ResourceModels\AbstractResourceModel;
 
@@ -9,7 +10,7 @@ class BookResourceModel extends AbstractResourceModel
 {
     public int $id;
 
-    public string $author;
+    public AuthorResourceModel $author;
 
     public string $name;
 

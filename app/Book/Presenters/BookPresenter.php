@@ -3,6 +3,7 @@
 namespace App\Book\Presenters;
 
 use App\Book\Models\Book;
+use App\Author\Presenters\AuthorPresenter;
 use App\User\Presenters\UserShortPresenter;
 use App\Book\ResourceModels\BookResourceModel;
 
@@ -10,6 +11,7 @@ class BookPresenter
 {
     public function __construct(
         private readonly UserShortPresenter $userShortPresenter,
+        private readonly AuthorPresenter $authorPresenter,
     ) {
     }
 
@@ -20,7 +22,7 @@ class BookPresenter
         $bookResource->owner = $this->userShortPresenter->present($book->owner);
         $bookResource->id = $book->id;
         $bookResource->name = $book->name;
-        $bookResource->author = $book->author;
+        $bookResource->author = $this->authorPresenter->present($book->author);
         $bookResource->createdAt = $book->created_at->format('Y-m-d');
         $bookResource->updatedAt = $book->updated_at->format('Y-m-d');
 
