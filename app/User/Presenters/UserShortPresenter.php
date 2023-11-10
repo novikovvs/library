@@ -9,7 +9,7 @@ class UserShortPresenter
 {
     public function present(?User $user): ?UserShortResourceModel
     {
-        if (!$user) {
+        if (! $user) {
             return null;
         }
 

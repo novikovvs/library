@@ -11,8 +11,8 @@ class PagerFactory
     {
         $pager = new PagerDTO();
 
-        $pager->perPage = (int)$request->get('per_page', 20);
-        $pager->page = (int)$request->get('page', 1);
+        $pager->perPage = (int) $request->get('per_page', 20);
+        $pager->page = (int) $request->get('page', 1);
 
         return $pager;
     }

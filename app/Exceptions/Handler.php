@@ -2,21 +2,20 @@
 
 namespace App\Exceptions;
 
-use Throwable;
-use Illuminate\Http\Request;
-use Illuminate\Http\JsonResponse;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
-
     /**
      * Render an exception into an HTTP response.
      *
-     * @param Request $request
+     * @param  Request  $request
      *
      * @throws Throwable
      */
@@ -25,7 +24,7 @@ class Handler extends ExceptionHandler
         if ($e instanceof ValidationException) {
             return new JsonResponse([
                 'message' => $e->getMessage(),
-                'data'    => $e->errors(),
+                'data' => $e->errors(),
             ], $e->getCode() ?: 422);
         }
 
@@ -35,7 +34,7 @@ class Handler extends ExceptionHandler
     /**
      * Convert an authentication exception into a response.
      *
-     * @param Request $request
+     * @param  Request  $request
      */
     protected function unauthenticated($request, AuthenticationException $exception): JsonResponse
     {
@@ -45,7 +44,7 @@ class Handler extends ExceptionHandler
     /**
      * Determine if the exception handler response should be JSON.
      *
-     * @param \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      */
     protected function shouldReturnJson($request, Throwable $e): bool
     {

@@ -10,8 +10,7 @@ class BookPresenter
 {
     public function __construct(
         private readonly UserShortPresenter $userShortPresenter,
-    )
-    {
+    ) {
     }
 
     public function present(Book $book): BookResourceModel
@@ -22,8 +21,8 @@ class BookPresenter
         $bookResource->id = $book->id;
         $bookResource->name = $book->name;
         $bookResource->author = $book->author;
-        $bookResource->createdAt = $book->created_at;
-        $bookResource->updatedAt = $book->updated_at;
+        $bookResource->createdAt = $book->created_at->format('Y-m-d');
+        $bookResource->updatedAt = $book->updated_at->format('Y-m-d');
 
         return $bookResource;
     }

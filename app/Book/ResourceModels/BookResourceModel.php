@@ -4,7 +4,6 @@ namespace App\Book\ResourceModels;
 
 use App\Common\ResourceModels\AbstractResourceModel;
 use App\User\ResourceModels\UserShortResourceModel;
-use Illuminate\Support\Carbon;
 
 class BookResourceModel extends AbstractResourceModel
 {
@@ -14,9 +13,9 @@ class BookResourceModel extends AbstractResourceModel
 
     public string $name;
 
-    public Carbon $createdAt;
+    public string $createdAt;
 
-    public Carbon $updatedAt;
+    public string $updatedAt;
 
     public ?UserShortResourceModel $owner;
 }

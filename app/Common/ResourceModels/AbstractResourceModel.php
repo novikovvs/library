@@ -2,8 +2,8 @@
 
 namespace App\Common\ResourceModels;
 
-use JsonSerializable;
 use Illuminate\Support\Str;
+use JsonSerializable;
 
 abstract class AbstractResourceModel implements JsonSerializable
 {
@@ -14,7 +14,7 @@ abstract class AbstractResourceModel implements JsonSerializable
         $propMap = [];
 
         foreach (get_object_vars($this) as $propName => $prop) {
-            if (!in_array($propName, static::SKIP, true)) {
+            if (! in_array($propName, static::SKIP, true)) {
                 $propMap[$propName] = Str::snake($propName);
             }
         }
