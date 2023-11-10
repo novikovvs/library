@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Book\Models;
+namespace App\Models;
 
-use App\Models\User;
-use App\Models\Author;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * App\Book\Models\Book.
@@ -32,6 +31,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  *
  * @method static \Illuminate\Database\Eloquent\Builder|Book whereAuthorId($value)
  *
+ * @property \Illuminate\Database\Eloquent\Collection<int, \App\Models\Author> $authors
+ * @property int|null $authors_count
+ *
  * @mixin \Eloquent
  */
 class Book extends Model
@@ -52,8 +54,8 @@ class Book extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function author(): BelongsTo
+    public function authors(): BelongsToMany
     {
-        return $this->belongsTo(Author::class);
+        return $this->belongsToMany(Author::class, 'authors_to_books', 'book_id');
     }
 }

@@ -20,8 +20,6 @@ return new class extends Migration
 
             $table->unsignedBigInteger('owner_id')->nullable();
             $table->foreign('owner_id')->references('id')->on('users')->nullOnDelete();
-            $table->unsignedBigInteger('author_id')->nullable();
-            $table->foreign('author_id')->references('id')->on('authors')->onDelete('CASCADE');
         });
     }
 

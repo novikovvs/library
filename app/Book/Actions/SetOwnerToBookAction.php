@@ -3,7 +3,7 @@
 namespace App\Book\Actions;
 
 use Throwable;
-use App\Book\Models\Book;
+use App\Models\Book;
 use App\Book\DTOs\SetOwnerToBookDTO;
 use App\Book\Presenters\BookPresenter;
 use App\Book\ResourceModels\BookResourceModel;

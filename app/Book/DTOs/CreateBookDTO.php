@@ -6,5 +6,5 @@ class CreateBookDTO
 {
     public string $name;
 
-    public int $authorId;
+    public array $authorIds;
 }

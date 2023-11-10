@@ -2,7 +2,7 @@
 
 namespace App\Book\Presenters;
 
-use App\Book\Models\Book;
+use App\Models\Book;
 use App\Author\Presenters\AuthorPresenter;
 use App\User\Presenters\UserShortPresenter;
 use App\Book\ResourceModels\BookResourceModel;
@@ -22,7 +22,11 @@ class BookPresenter
         $bookResource->owner = $this->userShortPresenter->present($book->owner);
         $bookResource->id = $book->id;
         $bookResource->name = $book->name;
-        $bookResource->author = $this->authorPresenter->present($book->author);
+
+        foreach ($book->authors as $author) {
+            $bookResource->authors[] = $this->authorPresenter->present($author);
+        }
+
         $bookResource->createdAt = $book->created_at->format('Y-m-d');
         $bookResource->updatedAt = $book->updated_at->format('Y-m-d');
 

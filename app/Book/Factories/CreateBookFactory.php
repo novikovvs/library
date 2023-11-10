@@ -12,7 +12,7 @@ class CreateBookFactory
         $DTO = new CreateBookDTO();
 
         $DTO->name = $request->get('name');
-        $DTO->authorId = (int) $request->get('author_id');
+        $DTO->authorIds = $request->get('author_ids');
 
         return $DTO;
     }

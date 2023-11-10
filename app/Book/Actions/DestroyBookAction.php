@@ -3,9 +3,9 @@
 namespace App\Book\Actions;
 
 use Throwable;
-use App\Book\Models\Book;
+use App\Models\Book;
 
-class DeleteBookAction
+class DestroyBookAction
 {
     /**
      * @throws Throwable

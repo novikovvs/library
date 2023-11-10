@@ -2,7 +2,6 @@
 
 namespace app\Models;
 
-use App\Book\Models\Book;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

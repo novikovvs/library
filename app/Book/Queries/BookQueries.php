@@ -2,7 +2,7 @@
 
 namespace App\Book\Queries;
 
-use App\Book\Models\Book;
+use App\Models\Book;
 use App\Common\DTOs\PagerDTO;
 use App\Book\DTOs\BookListFilterDTO;
 use Illuminate\Database\Eloquent\Builder;
@@ -14,7 +14,7 @@ class BookQueries
     {
         return $this
             ->getQuery()
-            ->when($filterDTO->authorName, fn ($q) => $q->whereHas('author', fn ($q) => $q->where('name', 'like', "%$filterDTO->authorName%"))
+            ->when($filterDTO->authorName, fn ($q) => $q->whereHas('authors', fn ($q) => $q->where('name', 'like', "%$filterDTO->authorName%"))
             )
             ->paginate(perPage: $paging->perPage, page: $paging->page);
     }
@@ -23,7 +23,7 @@ class BookQueries
     {
         return Book::query()
             ->with([
-                'author',
+                'authors',
                 'owner',
             ]);
     }

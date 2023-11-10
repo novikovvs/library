@@ -3,13 +3,13 @@
 namespace App\Book\Controllers;
 
 use Throwable;
-use App\Book\Models\Book;
+use App\Models\Book;
 use Illuminate\Http\JsonResponse;
 use App\Http\Traits\JsonResponsible;
 use App\Book\Actions\CreateBookAction;
-use App\Book\Actions\DeleteBookAction;
 use App\Book\Requests\BookListRequest;
 use App\Common\Factories\PagerFactory;
+use App\Book\Actions\DestroyBookAction;
 use App\Book\Requests\CreateBookRequest;
 use App\Book\Factories\CreateBookFactory;
 use App\Book\Actions\SetOwnerToBookAction;
@@ -41,7 +41,7 @@ class BookController
     /**
      * @throws Throwable
      */
-    public function destroy(DeleteBookAction $action, Book $book): JsonResponse
+    public function destroy(DestroyBookAction $action, Book $book): JsonResponse
     {
         return $this->success($action->execute($book));
     }
